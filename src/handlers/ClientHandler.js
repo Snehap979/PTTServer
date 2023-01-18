@@ -21,6 +21,9 @@ const createClient = async (request, response) => {
     try{   
         console.log(" in get clients",ClientService)     
         let clients = await ClientService.getClients() 
+
+
+       
         response.status(200).send(clients);
     } catch(error){
         console.log('error', error);

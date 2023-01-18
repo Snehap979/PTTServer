@@ -20,8 +20,19 @@ UserSchema.statics.createUser=async function(user){
     console.log("userResponse",userResponse)
     return userResponse
 }
+UserSchema.statics.ifUserAlreadyExists=async function(emailId)
+{
+    console.log("in create",emailId)
+   
+    const userResponse=await this.model(USER_MODEL).findOne({email:"giana@gmail.com"})
+    console.log("userResponse",userResponse)
+    return userResponse
+}
 
 module.exports.dbConnectionFUNCTIN=dbConnection.model(USER_MODEL,UserSchema)
 var User = mongoose.model(USER_MODEL
     ,UserSchema);
 module.exports = User;
+
+
+

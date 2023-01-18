@@ -1,4 +1,5 @@
 const express=require('express')
+var http = require('http');
 const routes=express()
 const port=process.env.PORT||7000
 const bodyParser=require('body-parser')
@@ -21,3 +22,4 @@ routes.put('/events',(req,res)=>EventHandler.deleteEvents(req,res))
 routes.get('/clients/former',(req,res)=>ClientHandler.getFormerClients(req,res))
 routes.post('/sessions',(req,res)=>SessionHandler.createSession(req,res)),
 routes.post('/trainers',(req,res)=>TrainerHandler.createTrainer(req,res))
+routes.get('/trainers/emailId/:emailId',(req,res)=>TrainerHandler.ifTrainerAlreadyExists(req,res))
